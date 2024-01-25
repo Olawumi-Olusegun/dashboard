@@ -3,12 +3,17 @@
 import { AlertCircle, Archive, ArchiveX, File, Inbox, MessagesSquare, Send, ShoppingCart, Trash2, Users2 } from 'lucide-react'
 import React from 'react'
 import { Nav } from './nav'
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 type Props = {}
 
 export default function SidebarNav({}: Props) {
   return (
-    <div className='relative'>
+    <div className='relative flex flex-col h-screen'>
+          <Link href={`/`} className=' bg-transparent rounded-full mt-5 mb-2 flex  items-center justify-center text-black hover:bg-transparent'>
+              <img src="images/brand.png" alt="brand-logo" className=' w-10 h-10 cursor-pointer object-contain' />
+            </Link>
         <Nav
             isCollapsed={true}
             links={[
@@ -57,7 +62,7 @@ export default function SidebarNav({}: Props) {
             ]}
           />
           {/* <Separator /> */}
-          <Nav
+          {/* <Nav
             isCollapsed={true}
             links={[
               {
@@ -96,7 +101,23 @@ export default function SidebarNav({}: Props) {
                 href: "/arc"
               },
             ]}
-          />
+          /> */}
+
+          <div className='flex flex-col gap-2 items-center justify-center mt-auto pb-10'>
+            
+            <Button className=' bg-transparent rounded-full flex items-center text-black hover:bg-transparent'>
+              <img src="images/arrow-right.png" alt="arrow-right" className=' w-10 h-10 cursor-pointer object-contain' />
+            </Button>
+            
+            <Button className=' bg-transparent rounded-full flex items-center text-black hover:bg-transparent'>
+              <img src="images/cog.png" alt="settings" className=' w-10 h-10 cursor-pointer object-contain' />
+            </Button>
+            
+            <Button className=' bg-transparent rounded-full flex  items-center text-black hover:bg-transparent'>
+              <img src="images/power.png" alt="power" className=' w-10 h-10 cursor-pointer object-contain' />
+            </Button>
+            
+          </div>
     </div>
   )
 }

@@ -1,74 +1,80 @@
-import React from 'react'
-import { ResponsiveContainer, BarChart as BarChartGraph, XAxis, YAxis, Bar } from 'recharts';
+import React, { useEffect, useState } from 'react'
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 
 type Props = {}
 
-const data = [
-    {
-        name: "Jan",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Feb",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Mar",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Apr",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "May",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Jun",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Jul",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Aug",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Sep",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Oct",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Nov",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-    {
-        name: "Dec",
-        total: Math.floor(Math.random() * 5000) + 1000,
-    },
-];
 
 export default function BarChart({}: Props) {
+
+    const [chartData, setChartData] = useState<any>({
+        datasets: [],
+      });
+    
+    const [chartOptions, setChartOptions] = useState<any>({});
+    
+    useEffect(() => {
+        setChartData({
+            // labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            // datasets: [
+            //     {
+            //         label: 'Sales $',
+            //         data: [18127, 22201, 19490, 17938, 24182, 17842, 22475],
+            //         borderColor: 'rgb(52, 202, 165)',
+            //         backgroundColor: 'rgb(52, 202, 165)',
+            //       }, 
+            // ]
+              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+              datasets: [
+                {
+                  label: 'uv',
+                  data: [4000, 3000, 2000, 2780, 1890, 2390,],
+                  borderColor: '#8884d8',
+                  backgroundColor: 'rgb(52, 202, 165)',
+                  fill: false,
+                },
+              ],
+        });
+    
+        setChartOptions({
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Daily Revenue'
+                }
+            },
+            maintainAspectRatio: false,
+            responsive: true
+        })
+      }, [])
+
+
   return (
     <>
-     <ResponsiveContainer width={`100%`} height={350}>
-        <BarChartGraph data={data}>
-            <XAxis dataKey={"name"} tickLine={false} axisLine={false} stroke='#888888' fontSize={12} />
-            <YAxis
-            tickLine={false} 
-            axisLine={false} 
-            stroke='#888888' fontSize={12}
-            tickFormatter={(value) => `$${value}` } 
-            />
-            <Bar dataKey={"total"} radius={[4,4,0,0]} />
-        </BarChartGraph>
-     </ResponsiveContainer>
+        <div className='max-w-[calc(100%_-_16px)]  h-[350px] px-2'>
+            <Bar data={chartData} options={chartOptions} />
+        </div>
     </>
   )
 }

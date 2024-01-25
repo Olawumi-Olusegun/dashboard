@@ -39,7 +39,7 @@ export default function DataTable<TData, TValue>({
    
     return (
       <div>
-      <div className="rounded-md border">
+      <div className="rounded-md ">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -65,9 +65,10 @@ export default function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                 
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className="p-2">
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
@@ -84,7 +85,7 @@ export default function DataTable<TData, TValue>({
         </Table>
       </div>
 
-      <div className="flex items-center justify-center space-x-2 py-4">
+      {/* <div className="flex items-center justify-center space-x-2 py-4">
         <Button
           variant="outline"
           size="sm"
@@ -101,7 +102,7 @@ export default function DataTable<TData, TValue>({
         >
           Next
         </Button>
-      </div>
+      </div> */}
       </div>
     )
   }

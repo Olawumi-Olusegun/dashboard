@@ -20,10 +20,10 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       <body className={cn(
         "min-h-screen w-full bg-[#F7F8FA] text-black flex ",
         inter.className, { "debug-screens": process.env.NODE_ENV === "development" })}>
-          <aside className="border md:w-[80px] transition-all duration-300">
+          <aside className="hidden bg-[#F7F8FA] md:block border-r md:w-[80px] transition-all duration-300">
             <SidebarNav />
           </aside>
-         <main className="flex-1 ">
+         <main className="flex-1">
           <HeaderNav />
           {children}
          </main>
