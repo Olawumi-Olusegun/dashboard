@@ -30,6 +30,15 @@ export const options = {
       display: false,
       text: 'Chart',
     },
+    scales: {
+      x: [
+        {
+          grid: {
+            display: false,
+          },
+        },
+      ],
+    },
   },
 };
 
@@ -52,8 +61,8 @@ export default function BarChart() {
   
   return (
     <>
-    <div className='w-full py-2 overflow-scroll lg:overflow-hidden lg:max-w-[calc(100%_-_16px)]  h-[374px]'>
-      <Bar options={options} data={data}  />
+    <div className='w-[100%] py-2 overflow-scroll lg:overflow-hidden lg:max-w-[calc(100%_-_16px)]  h-[374px]'>
+      <Bar options={options} data={data} />
     </div>
     </>
   )

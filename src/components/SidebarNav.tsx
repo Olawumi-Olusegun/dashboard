@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, Archive, ArchiveX, File, Inbox, MessagesSquare, Send, ShoppingCart, Trash2, Users2 } from 'lucide-react'
+
 import React from 'react'
 import { Nav } from './nav'
 import { Button } from './ui/button';
@@ -11,7 +11,7 @@ type Props = {}
 
 export default function SidebarNav({}: Props) {
   return (
-    <div className='relative flex flex-col h-screen bg-[#F7F8FA]'>
+    <div className='relative flex flex-col min-h-screen bg-[#F7F8FA]'>
           <Link href={`/`} className=' bg-transparent rounded-full mt-5 mb-2 flex  items-center justify-center text-black hover:bg-transparent'>
               <img src="images/brand.png" alt="brand-logo" className=' w-10 h-10 cursor-pointer object-contain' />
             </Link>
@@ -19,7 +19,7 @@ export default function SidebarNav({}: Props) {
             isCollapsed={true}
             links={[
               {
-                title: "Inbox",
+                title: "Dashboard",
                 label: "128",
                 icon: "images/dashboard.png",
                 variant: "default",
@@ -40,25 +40,25 @@ export default function SidebarNav({}: Props) {
                 href: "/orders"
               },
               {
-                title: "Junk",
-                label: "23",
+                title: "Insight",
+                label: "",
                 icon: "images/box.png",
                 variant: "ghost",
-                href: "/archive"
+                href: "/insight"
               },
               {
-                title: "Trash",
+                title: "Setup",
                 label: "",
                 icon: "images/discount-shape.png",
                 variant: "ghost",
-                href: "/trash"
+                href: "/setup"
               },
               {
-                title: "Archive",
+                title: "Dev",
                 label: "",
                 icon: "images/info-circle.png",
                 variant: "ghost",
-                href: "/archive-2"
+                href: "/developer"
               },
             ]}
           />
