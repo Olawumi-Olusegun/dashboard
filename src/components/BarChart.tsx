@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Bar } from 'react-chartjs-2';
+import React from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
@@ -16,65 +16,45 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'top' as const,
+      display: false,
+    },
+    title: {
+      display: false,
+      text: 'Chart',
+    },
+  },
+};
 
-type Props = {}
+const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: '',
+      data: ['5000', '18000', '4000', '28000', '10000', '45000', '5000','20000', '32000', '4000', '30000', '25000', '50000'],
+      borderRadius: 30,
+      backgroundColor: '#EBFAF6',
+      hoverBackgroundColor: '#34CAA5',
+    },
+  ],
+};
 
+export default function BarChart() {
 
-export default function BarChart({}: Props) {
-
-    const [chartData, setChartData] = useState<any>({
-        datasets: [],
-      });
-    
-    const [chartOptions, setChartOptions] = useState<any>({});
-    
-    useEffect(() => {
-        setChartData({
-            // labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            // datasets: [
-            //     {
-            //         label: 'Sales $',
-            //         data: [18127, 22201, 19490, 17938, 24182, 17842, 22475],
-            //         borderColor: 'rgb(52, 202, 165)',
-            //         backgroundColor: 'rgb(52, 202, 165)',
-            //       }, 
-            // ]
-              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-              datasets: [
-                {
-                  label: 'uv',
-                  data: [4000, 3000, 2000, 2780, 1890, 2390,],
-                  borderColor: '#8884d8',
-                  backgroundColor: 'rgb(52, 202, 165)',
-                  fill: false,
-                },
-              ],
-        });
-    
-        setChartOptions({
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Daily Revenue'
-                }
-            },
-            maintainAspectRatio: false,
-            responsive: true
-        })
-      }, [])
-
-
+  
   return (
     <>
-        <div className='max-w-[calc(100%_-_16px)]  h-[350px] px-2'>
-            <Bar data={chartData} options={chartOptions} />
-        </div>
+    <div className='w-full py-2 overflow-scroll lg:overflow-hidden lg:max-w-[calc(100%_-_16px)]  h-[374px]'>
+      <Bar options={options} data={data}  />
+    </div>
     </>
   )
 }

@@ -6,7 +6,7 @@ export default function RevenueCard({}: Props) {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4'>
         
-        <div className='flex flex-col justify-between gap-[10px] p-4 rounded-md bg-white border'>
+        <div className='flex flex-col justify-between gap-[10px] p-4 rounded-md bg-white border border-[#EDF2F7] shadow-sm'>
             
             <div className='flex items-center justify-between'>
                 <div className='w-[40px] h-[40px] object-contain  rounded-full border flex items-center justify-center '>
@@ -28,7 +28,7 @@ export default function RevenueCard({}: Props) {
             
         </div>
         
-        <div className='flex flex-col justify-between gap-[10px] p-4 rounded-md bg-white border'>
+        <div className='flex flex-col justify-between gap-[10px] p-4 rounded-md bg-white border border-[#EDF2F7] shadow-sm'>
             
             <div className='flex items-center justify-between'>
                 <div className='w-[40px] h-[40px] object-contain  rounded-full border flex items-center justify-center '>
@@ -51,7 +51,7 @@ export default function RevenueCard({}: Props) {
         </div>
 
 
-        <div className='flex flex-col justify-between gap-[10px] p-4 rounded-md bg-white border'>
+        <div className='flex flex-col justify-between gap-[10px] p-4 rounded-md bg-white border border-[#EDF2F7] shadow-sm'>
             
             <div className='flex items-center justify-between'>
                 <div className='w-[40px] h-[40px] object-contain  rounded-full border flex items-center justify-center '>
@@ -73,7 +73,7 @@ export default function RevenueCard({}: Props) {
             
         </div>
 
-        <div className='flex flex-col justify-between gap-[10px] p-4 rounded-md bg-white border'>
+        <div className='flex flex-col justify-between gap-[10px] p-4 rounded-md bg-white border border-[#EDF2F7] shadow-sm'>
             
             <div className='flex items-center justify-between'>
                 <div className='w-[40px] h-[40px] object-contain  rounded-full border flex items-center justify-center '>

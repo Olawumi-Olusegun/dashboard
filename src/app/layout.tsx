@@ -18,7 +18,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
   return (
     <html lang="en">
       <body className={cn(
-        "min-h-screen w-full bg-[#F7F8FA] text-black flex ",
+        "min-h-screen w-full bg-[#FAFAFA] text-black flex ",
         inter.className, { "debug-screens": process.env.NODE_ENV === "development" })}>
           <aside className="hidden bg-[#F7F8FA] md:block border-r md:w-[80px] transition-all duration-300">
             <SidebarNav />

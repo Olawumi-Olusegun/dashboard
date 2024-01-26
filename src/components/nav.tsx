@@ -18,7 +18,7 @@ interface NavProps {
   links: {
     title: string;
     label?: string;
-    icon: LucideIcon;
+    icon: any;
     variant: "default" | "ghost";
     href: string;
   }[]
@@ -49,18 +49,10 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white "
                     )}
                     >
-                    <link.icon className="h-4 w-4" />
+                        <img src={link.icon} alt="arrow-right" className=' w-6 h-6 cursor-pointer object-contain' />
                         <span className="sr-only">{link.title}</span>
                     </Link>
                 </TooltipTrigger>
-                {/* <TooltipContent side="right" className="flex items-center gap-4">
-                    {link.title}
-                    {link.label && (
-                    <span className="ml-auto text-muted-foreground">
-                        {link.label}
-                    </span>
-                    )}
-                </TooltipContent> */}
                 </Tooltip>
             ) : (
                 <Link
@@ -73,19 +65,10 @@ export function Nav({ links, isCollapsed }: NavProps) {
                     "justify-start"
                 )}
                 >
-                <link.icon className="mr-2 h-4 w-4" />
+                
+                <img src={link.icon} alt={link.title} className=' w-10 h-10 cursor-pointer object-contain' />
                 {link.title}
-                {/* {link.label && (
-                    <span
-                    className={cn(
-                        "ml-auto",
-                        link.variant === "default" &&
-                        "text-background dark:text-white"
-                    )}
-                    >
-                    {link.label}
-                    </span>
-                )} */}
+               
                 </Link>
             )
             )}

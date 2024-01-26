@@ -7,23 +7,47 @@ import PageTitle from "@/components/PageTitle";
 import RevenueCard from "@/components/RevenueCard";
 import TopPlatforms from "@/components/TopPlatforms";
 import Link from "next/link";
+import { useState } from "react";
 
 
 export default function Home() {
+
+  const [openViewAll, setOpenViewAll] = useState(false);
+
+
   return (
     <div className="p-2 md:p-5 flex flex-col gap-5 w-full">
       
       <section className="grid grid-cols-1 gap-4 transition-all lg:grid-cols-[1fr_456px]">
        
-        <CardContent className="py-2 px-0">
-          <p className="px-5 font-semibold">Overview</p>
+        <CardContent className=" bg-white h-[374px] gap-0 flex flex-col">
+          
+          <div className="flex items-center justify-between">
+            <p className="font-semibold">Sales Trend</p>
+
+            <div onClick={() => setOpenViewAll(prev => !prev)} className="relative flex items-center p-1 text-xs cursor-pointer border rounded-full">
+              <span className="p-1">Sort By:</span>
+              <div className="flex items-center ">
+                <span>Weekly</span>
+                <span>
+                  <img src="images/arrow-down.png" alt=" arrow-down" className="w-5 h-5 object-contain" />
+                </span>
+              </div>
+
+            <div className={`absolute transition-all duration-300 flex flex-col gap-y-1 top-8 rounded-md shadow-md p-1 border right-0 bg-white  w-full ${openViewAll ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+              <p className="cursor-pointer hover:bg-gray-100 text-xs p-1.5 rounded-md ">Date</p>
+              <p className="cursor-pointer hover:bg-gray-100 text-xs p-1.5 rounded-md ">Location</p>
+            </div>
+
+            </div>
+
+          </div>
+
           <BarChart />
         </CardContent>
 
-        <CardContent className="p-2 md:p-4 ">
-
-        <RevenueCard />
-
+        <CardContent className="p-0 md:p-0 border-none h-[374px] shadow-none">
+            <RevenueCard />
         </CardContent>
 
       </section>

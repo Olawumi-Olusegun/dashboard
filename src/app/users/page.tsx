@@ -1,11 +1,11 @@
 "use client"
 
-import DataTable from '@/components/DataTable '
+
 import React from 'react'
 import { ColumnDef } from "@tanstack/react-table"
 import PageTitle from '@/components/PageTitle'
 import Image from 'next/image'
-import Link from 'next/link'
+
  
 
 export type Payment = {
@@ -64,19 +64,11 @@ export default function UsersPage({}: Props) {
   return (
     <div className='flex-1  p-5 '>
       <div className='flex flex-col bg-white p-5 rounded-md'>
-        
         <div className='flex items-center justify-between'>
-          <PageTitle className='text-sm font-normal py-3'>
-            Last Orders
+          <PageTitle className='text-sm  py-3'>
+            User page
           </PageTitle>
-
-          <Link href={`#`} className='text-xs text-cyan-500'>See All</Link>
-
         </div>
-      <div className=''>
-          <DataTable columns={columns} data={data} />
-      </div>
-
       </div>
     </div>
   )
