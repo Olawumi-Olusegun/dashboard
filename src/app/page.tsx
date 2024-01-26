@@ -20,7 +20,7 @@ export default function Home() {
       
       <section className="grid grid-cols-1 gap-4 transition-all lg:grid-cols-[1fr_456px]">
        
-        <CardContent className=" bg-white h-[374px] gap-0 flex flex-col">
+        <CardContent className=" bg-white h-auto lg:h-[374px] gap-0 flex flex-col">
           
           <div className="flex items-center justify-between">
             <p className="font-semibold">Sales Trend</p>

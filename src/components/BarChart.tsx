@@ -61,7 +61,7 @@ export default function BarChart() {
   
   return (
     <>
-    <div className='w-[100%] py-2 overflow-scroll lg:overflow-hidden lg:max-w-[calc(100%_-_16px)]  h-[374px]'>
+    <div className='w-[100%] py-2 overflow-scroll lg:overflow-hidden lg:max-w-[calc(100%_-_16px)] h-auto lg:h-[374px]'>
       <Bar options={options} data={data} />
     </div>
     </>
