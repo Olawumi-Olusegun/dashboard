@@ -1,7 +1,9 @@
+'use client'
+
 import React from 'react'
 import DataTable from './DataTable ';
 import { ColumnDef } from '@tanstack/react-table';
-import Image from 'next/image';
+import Link from 'next/link';
 
 type Props = {}
 
@@ -108,11 +110,11 @@ export const columns: ColumnDef<LastOrderProps>[] = [
       accessorKey: "invoice",
       header: "Invoice",
       cell: ({row}) => {
-        return <div className='flex items-center'>
-           <div className='w-8 h-8 flex items-center justify-center'>
+        return <div className='flex items-center group'>
+           <Link href={`#`} className='w-8 h-8 flex items-center space-x-1 justify-center'>
              <img src={`images/document-download.png`}  alt='user-avatar' className='object-contain' />
-           </div>
-           <p className="text-[#0D062D] inline-block">{row.getValue("invoice")}</p>
+            <p className="text-[#0D062D] group-hover:text-gray-400 duration-300 inline-block">{row.getValue("invoice")}</p>
+           </Link>
         </div>
       }
     },
